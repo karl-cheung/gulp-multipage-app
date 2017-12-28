@@ -1,0 +1,59 @@
+{
+  "name": "gulp-web",
+  "version": "1.0.0",
+  "main": "gulpfile.babel.js",
+  "scripts": {
+    "init": "gulp init",
+    "dev": "gulp server",
+    "build": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "vincheung",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "browser-sync": "^2.18.13",
+    "del": "^3.0.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-babel": "^7.0.0",
+    "gulp-cache": "^1.0.1",
+    "gulp-changed": "^3.1.1",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-eslint": "^4.0.0",
+    "gulp-filter": "^5.0.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^4.0.0",
+    "gulp-less": "^3.4.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-rev": "^8.1.0",
+    "gulp-rev-append": "^0.1.8",
+    "gulp-rev-collector": "^1.2.3",
+    "gulp-sass-china": "^3.1.0",
+    "gulp-shell": "^0.6.3",
+    "gulp-sourcemaps": "^2.6.2",
+    "gulp-stylus": "^2.7.0",
+    "gulp-uglify": "^3.0.0",
+    "http-proxy-middleware": "^0.17.4",
+    "lazypipe": "^1.0.1",
+    "mkdirp": "^0.5.1",
+    "require-dir": "^0.3.2",
+    "run-sequence": "^2.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/vincheung/gulp-web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vincheung/gulp-web/issues"
+  },
+  "homepage": "https://github.com/vincheung/gulp-web#readme",
+  "description": ""
+}
