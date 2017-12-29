@@ -1,3 +1,5 @@
 build/*.js
-dist/*.js
 config/*.js
+dist/*.js
+dev/*.js
+tasks/*.js

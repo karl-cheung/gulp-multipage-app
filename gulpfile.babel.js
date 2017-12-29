@@ -13,13 +13,11 @@ gulp.task('clean', () => del(['dist', 'dev']))
 
 gulp.task('shell', shell.task('echo You can start to run a shell.'))
 
-gulp.task('dev', ['dev:img', 'dev:css', 'dev:js', 'dev:html'])
-
 gulp.task('default', () => {
   return runSequence(
     'clean',
-    ['dev:img', 'dev:css', 'dev:js', 'dev:html'],
-    ['build:img', 'build:css', 'build:js', 'build:html'],
+    'dev',
+    'build',
     'rev',
     'shell'
   )

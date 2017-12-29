@@ -1,12 +1,9 @@
 # gulp-web 
 
-
-## overview
-
-Based on a gulp of automated build web project.
+> Based on the web project to construct gulp.
 
 
-## use
+## Usage
 
 Install all dependencies in the first place.
 
@@ -36,8 +33,3 @@ $ npm run build
 ## License
 
 The MIT License.
-
-
-## contribution
-
-If you have good ideas or Suggestions, please talk to me about the issue or a pull request.

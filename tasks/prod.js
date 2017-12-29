@@ -42,6 +42,8 @@ gulp.task('build:html', () => {
   .pipe(gulp.dest(config.paths.dist + config.paths.html))
 })
 
+gulp.task('build', ['build:img', 'build:css', 'build:js', 'build:html'])
+
 gulp.task('rev', () => {
   if (config.revAppend) return
   return gulp.src([`${config.paths.dev}/rev/**/rev-manifest.json`, config.paths.dist + config.paths.assetsHtml])

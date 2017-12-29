@@ -69,6 +69,8 @@ gulp.task('dev:html', () => {
   .pipe(gulp.dest(config.paths.dev + config.paths.html))
 })
 
+gulp.task('dev', ['dev:img', 'dev:css', 'dev:js', 'dev:html'])
+
 gulp.task('watch', () => {
   gulp.watch(config.paths.src + config.paths.assetsImg, ['dev:img'])
   gulp.watch(config.paths.src + config.paths.assetsCss, ['dev:css'])
