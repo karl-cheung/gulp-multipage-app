@@ -11,7 +11,7 @@ gulp.task('build:img', () => {
   .pipe($.if(!config.revAppend, $.rev()))
   .pipe(gulp.dest(config.paths.dist + config.paths.img))
   .pipe($.if(!config.revAppend, $.rev.manifest()))
-  .pipe($.if(!config.revAppend, gulp.dest(`${config.paths.dev}/rev${config.paths.img}`)))
+  .pipe($.if(!config.revAppend, gulp.dest(`${config.paths.dist}/rev${config.paths.img}`)))
 })
 
 gulp.task('build:css', () => {
@@ -20,7 +20,7 @@ gulp.task('build:css', () => {
   .pipe($.if(!config.revAppend, $.rev()))
   .pipe(gulp.dest(config.paths.dist + config.paths.css))
   .pipe($.if(!config.revAppend, $.rev.manifest()))
-  .pipe($.if(!config.revAppend, gulp.dest(`${config.paths.dev}/rev${config.paths.css}`)))
+  .pipe($.if(!config.revAppend, gulp.dest(`${config.paths.dist}/rev${config.paths.css}`)))
 })
 
 gulp.task('build:js', () => {
@@ -32,7 +32,7 @@ gulp.task('build:js', () => {
   .pipe(f.restore)
   .pipe(gulp.dest(config.paths.dist + config.paths.js))
   .pipe($.if(!config.revAppend, $.rev.manifest()))
-  .pipe($.if(!config.revAppend, gulp.dest(`${config.paths.dev}/rev${config.paths.js}`)))
+  .pipe($.if(!config.revAppend, gulp.dest(`${config.paths.dist}/rev${config.paths.js}`)))
 })
 
 gulp.task('build:html', () => {
@@ -42,13 +42,18 @@ gulp.task('build:html', () => {
   .pipe(gulp.dest(config.paths.dist + config.paths.html))
 })
 
-gulp.task('build', ['build:img', 'build:css', 'build:js', 'build:html'])
+gulp.task('build:assets', () => {
+  return gulp.src([`${config.paths.dev}/**/*`, `!${config.paths.dev}${config.paths.img}`, `!${config.paths.dev}${config.paths.css}`, `!${config.paths.dev}${config.paths.js}`, `!${config.paths.dev}${config.paths.html}`])
+  .pipe(gulp.dest(config.paths.dist))
+})
+
+gulp.task('build', ['build:img', 'build:css', 'build:js', 'build:html', 'build:assets'])
 
 gulp.task('rev', () => {
   if (config.revAppend) return
-  return gulp.src([`${config.paths.dev}/rev/**/rev-manifest.json`, config.paths.dist + config.paths.assetsHtml])
+  return gulp.src([`${config.paths.dist}/**/*.+(html|js|css|json)`])
   .pipe($.revCollector({
     replaceReved: true
   }))
-  .pipe(gulp.dest(config.paths.dist + config.paths.html))
+  .pipe(gulp.dest(config.paths.dist))
 })

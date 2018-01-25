@@ -1,5 +1,5 @@
 {
-  "name": "gulp-web",
+  "name": "gulp-webapp",
   "version": "1.0.0",
   "main": "gulpfile.babel.js",
   "scripts": {
@@ -49,11 +49,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/vincheung/gulp-web.git"
+    "url": "git+ssh://git@github.com/vincheung/gulp-webapp.git"
   },
   "bugs": {
-    "url": "https://github.com/vincheung/gulp-web/issues"
+    "url": "https://github.com/vincheung/gulp-webapp/issues"
   },
-  "homepage": "https://github.com/vincheung/gulp-web#readme",
-  "description": ""
+  "homepage": "https://github.com/vincheung/gulp-webapp#readme"
 }

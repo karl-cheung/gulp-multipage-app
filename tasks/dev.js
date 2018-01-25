@@ -13,7 +13,6 @@ const reload = bs.reload
 
 gulp.task('dev:img', () => {
   return gulp.src([config.paths.src + config.paths.assetsImg])
-  .pipe($.changed(config.paths.dev + config.paths.img))
   .pipe(gulp.dest(config.paths.dev + config.paths.img))
   .pipe(reload({ stream: true }))
 })
@@ -39,7 +38,6 @@ const stylusTasks = lazypipe()
 
 gulp.task('dev:css', () => {
   return gulp.src([config.paths.src + config.paths.assetsCss])
-  .pipe($.changed(config.paths.dev + config.paths.css, { extension: '.css' }))
   .pipe($.if(config.cssSourceMap, $.sourcemaps.init()))
   .pipe(config.styleLoader.style === 'sass' ? sassTasks() : config.styleLoader.style === 'less' ? lessTasks() : config.styleLoader.style === 'stylus' ? stylusTasks() : '')
   .pipe($.autoprefixer(config.autoprefixer))
@@ -52,7 +50,6 @@ gulp.task('dev:js', () => {
   const f = $.filter(['**', `!${config.paths.src + config.paths.js}/**/*.min.js`], { restore: true })
   return gulp.src([config.paths.src + config.paths.assetsJs])
   .pipe(f)
-  .pipe($.changed(config.paths.dev + config.paths.js))
   .pipe($.if(config.jsSourceMap, $.sourcemaps.init()))
   .pipe($.if(config.eslint, $.eslint()))
   .pipe($.if(config.eslint, $.eslint.format()))
@@ -65,16 +62,21 @@ gulp.task('dev:js', () => {
 
 gulp.task('dev:html', () => {
   return gulp.src([config.paths.src + config.paths.assetsHtml])
-  .pipe($.changed(config.paths.dev + config.paths.html))
   .pipe(gulp.dest(config.paths.dev + config.paths.html))
 })
 
-gulp.task('dev', ['dev:img', 'dev:css', 'dev:js', 'dev:html'])
+gulp.task('dev:assets', () => {
+  return gulp.src([`${config.paths.src}/**/*`, `!${config.paths.src}${config.paths.img}`, `!${config.paths.src}${config.paths.css}`, `!${config.paths.src}${config.paths.js}`, `!${config.paths.src}${config.paths.html}`])
+  .pipe(gulp.dest(config.paths.dev))
+})
+
+gulp.task('dev', ['dev:img', 'dev:css', 'dev:js', 'dev:html', 'dev:assets'])
 
 gulp.task('watch', () => {
   gulp.watch(config.paths.src + config.paths.assetsImg, ['dev:img'])
   gulp.watch(config.paths.src + config.paths.assetsCss, ['dev:css'])
   gulp.watch(config.paths.src + config.paths.assetsJs, ['dev:js'])
+  gulp.watch([`${config.paths.src}/**/*`, `!${config.paths.src}${config.paths.img}`, `!${config.paths.src}${config.paths.css}`, `!${config.paths.src}${config.paths.js}`, `!${config.paths.src}${config.paths.html}`], ['dev:assets'])
   gulp.watch(config.paths.src + config.paths.assetsHtml, ['dev:html']).on('change', reload)
 })
 

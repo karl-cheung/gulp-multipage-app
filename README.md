@@ -1,6 +1,6 @@
-# gulp-web 
+# gulp-webapp 
 
-> Based on the web project to construct gulp.
+> Based on the webapp project to construct gulp.
 
 
 ## Usage
@@ -33,3 +33,8 @@ $ npm run build
 ## License
 
 The MIT License.
+
+
+## Contribution
+
+If you have good ideas or Suggestions, please talk to me about the issue or a pull request.
