@@ -65,8 +65,10 @@ gulp.task('dev:html', () => {
   .pipe(gulp.dest(config.paths.dev + config.paths.html))
 })
 
+const assets = [`!${config.paths.src}${config.paths.img}/**/*`, `!${config.paths.src}${config.paths.css}/**/*`, `!${config.paths.src}${config.paths.js}/**/*`, `!${config.paths.src}${config.paths.html}/**/*`]
+
 gulp.task('dev:assets', () => {
-  return gulp.src([`${config.paths.src}/**/*`, `!${config.paths.src}${config.paths.img}`, `!${config.paths.src}${config.paths.css}`, `!${config.paths.src}${config.paths.js}`, `!${config.paths.src}${config.paths.html}`])
+  return gulp.src([`${config.paths.src}/**/*`, ...assets])
   .pipe(gulp.dest(config.paths.dev))
 })
 
@@ -76,7 +78,7 @@ gulp.task('watch', () => {
   gulp.watch(config.paths.src + config.paths.assetsImg, ['dev:img'])
   gulp.watch(config.paths.src + config.paths.assetsCss, ['dev:css'])
   gulp.watch(config.paths.src + config.paths.assetsJs, ['dev:js'])
-  gulp.watch([`${config.paths.src}/**/*`, `!${config.paths.src}${config.paths.img}`, `!${config.paths.src}${config.paths.css}`, `!${config.paths.src}${config.paths.js}`, `!${config.paths.src}${config.paths.html}`], ['dev:assets'])
+  gulp.watch([`${config.paths.src}/**/*`, ...assets])
   gulp.watch(config.paths.src + config.paths.assetsHtml, ['dev:html']).on('change', reload)
 })
 

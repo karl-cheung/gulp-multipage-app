@@ -43,7 +43,7 @@ gulp.task('build:html', () => {
 })
 
 gulp.task('build:assets', () => {
-  return gulp.src([`${config.paths.dev}/**/*`, `!${config.paths.dev}${config.paths.img}`, `!${config.paths.dev}${config.paths.css}`, `!${config.paths.dev}${config.paths.js}`, `!${config.paths.dev}${config.paths.html}`])
+  return gulp.src([`${config.paths.dev}/**/*`, `!${config.paths.dev}${config.paths.img}/**/*`, `!${config.paths.dev}${config.paths.css}/**/*`, `!${config.paths.dev}${config.paths.js}/**/*`, `!${config.paths.dev}${config.paths.html}/**/*`])
   .pipe(gulp.dest(config.paths.dist))
 })
 
