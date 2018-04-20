@@ -1,6 +1,6 @@
-# gulp-webapp 
+# gulp-multipage-app 
 
-> Based on the webapp project to construct gulp.
+> Based on the gulp multipage app build.
 
 
 ## Usage
@@ -37,4 +37,4 @@ The MIT License.
 
 ## Contribution
 
-If you have good ideas or Suggestions, please talk to me about the issue or a pull request.
+If you have good ideas or Suggestions, please talk to me about the issue.
