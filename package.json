@@ -1,5 +1,5 @@
 {
-  "name": "gulp-webapp",
+  "name": "gulp-multipage-app",
   "version": "1.0.0",
   "main": "gulpfile.babel.js",
   "scripts": {
@@ -49,10 +49,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/vincheung/gulp-webapp.git"
+    "url": "git+ssh://git@github.com/vincheung/gulp-multipage-app.git"
   },
   "bugs": {
-    "url": "https://github.com/vincheung/gulp-webapp/issues"
+    "url": "https://github.com/vincheung/gulp-multipage-app/issues"
   },
-  "homepage": "https://github.com/vincheung/gulp-webapp#readme"
+  "homepage": "https://github.com/vincheung/gulp-multipage-app#readme"
 }
